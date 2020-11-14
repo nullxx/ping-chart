@@ -1,11 +1,10 @@
 {
   "name": "ping-chart",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple chart to view network stability",
   "main": "index.js",
   "scripts": {
-    "postinstall": "install-app-deps",
-    "start": "npm install && electron ./app",
+    "start": "electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
