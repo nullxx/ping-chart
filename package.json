@@ -1,0 +1,53 @@
+{
+  "name": "ping-chart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "install-app-deps",
+    "start": "npm install && electron ./app",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "me.nullx.pingChart",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "build/icons/mac/icon.icns"
+    },
+    "win": {
+      "target": "portable",
+      "icon": "build/icons/win/icon.ico"
+    },
+    "linux": {
+      "target": "deb",
+      "icon": "build/icons/png"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^10.1.5",
+    "electron-builder": "^22.9.1"
+  },
+  "dependencies": {
+    "chart.js": "^2.9.4",
+    "menubar": "^9.0.1",
+    "ping": "^0.3.0"
+  }
+}
