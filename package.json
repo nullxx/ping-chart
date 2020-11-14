@@ -36,8 +36,13 @@
     "linux": {
       "target": "deb",
       "icon": "build/icons/png"
-    }
+    },
+    "files": [
+      "!**/.github/*",
+      "!**/.dist/*"
+    ]
   },
+  
   "keywords": [],
   "author": "nullx <mail@nullx.me>",
   "repository": "https://github.com/nullxx/ping-chart",
