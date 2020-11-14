@@ -9,6 +9,7 @@
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
+  
   "build": {
     "appId": "me.nullx.pingChart",
     "dmg": {
@@ -39,7 +40,8 @@
     }
   },
   "keywords": [],
-  "author": "",
+  "author": "nullx <mail@nullx.me>",
+  "repository": "https://github.com/nullxx/ping-chart",
   "license": "ISC",
   "devDependencies": {
     "electron": "^10.1.5",
