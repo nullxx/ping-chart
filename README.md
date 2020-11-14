@@ -1,6 +1,8 @@
 # ping-chart
 **Simple** chart to view network stability
 
+# Demo
+![Demo](demo.gif)
 # Install
 Download the lastest version from [releases](https://github.com/nullxx/ping-chart/releases)
 # Building
