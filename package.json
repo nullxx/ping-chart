@@ -1,6 +1,6 @@
 {
   "name": "ping-chart",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple chart to view network stability",
   "main": "index.js",
   "scripts": {
@@ -38,8 +38,7 @@
       "icon": "build/icons/png"
     },
     "files": [
-      "!**/.github/*",
-      "!**/dist/*"
+      "!**/.github/*"
     ]
   },
   
