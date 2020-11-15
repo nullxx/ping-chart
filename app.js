@@ -1,6 +1,6 @@
 const path = require('path');
 const { menubar } = require('menubar');
-require('dotenv').config({ path: '.env.example' }); // for building at github actions
+require('dotenv').config({ path: path.join(__dirname, '.env.example') }); // for building at github actions
 
 const iconPath = path.join(__dirname, 'assets', '16x16.png');
 
@@ -11,7 +11,7 @@ const mb = menubar({
     },
   },
   icon: iconPath,
-  dir: 'src/views'
+  dir: path.join(__dirname, 'src/views')
 });
 
 mb.on('ready', () => {
