@@ -10,6 +10,7 @@ const mb = menubar({
     },
   },
   icon: iconPath,
+  dir: 'src/views'
 });
 
 mb.on('ready', () => {

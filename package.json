@@ -2,7 +2,7 @@
   "name": "ping-chart",
   "version": "1.0.1",
   "description": "Simple chart to view network stability",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
