@@ -4,7 +4,7 @@
 # Demo
 ![Demo](demo.gif)
 # Install
-Download the lastest version from [releases](https://github.com/nullxx/ping-chart/releases)
+Download the lastest version from [releases](https://github.com/nullxx/ping-chart/releases/latest)
 # Building
 * Clone this repo
 ```bash
