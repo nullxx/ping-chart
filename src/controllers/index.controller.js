@@ -1,10 +1,12 @@
 const ping = require('ping');
 
-const host = '1.1.1.1';
-const maxPerView = 27;
+const host = process.env.DEFAULT_PING_HOST;
+const maxPerView = parseInt(process.env.MAX_ELEMENTS_PER_VIEW, 10);
+const timeIntervalMS = parseInt(process.env.TIME_INTERVAL, 10);
 
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
+var ctx = document.getElementById('chart').getContext('2d');
+
+var chart = new Chart(ctx, {
     type: 'line',
     data: {
         labels: [],
@@ -54,22 +56,20 @@ const doPing = (host = '1.1.1.1') => {
 
             res({ isAlive, seconds: timeDiff, startTime: startTime.toLocaleTimeString() });
         })
-
     })
-
 }
 
 setInterval(async () => {
     const response = await doPing(host);
     if (!response.err) {
         if (response.isAlive) {
-            myChart.data.datasets[0].data.push(response.seconds)
-            myChart.data.labels.push(response.startTime);
-            if(myChart.data.datasets[0].data.length >= maxPerView) {
-                myChart.data.datasets[0].data.splice(0, 1);
-                myChart.data.labels.splice(0, 1);
+            chart.data.datasets[0].data.push(response.seconds)
+            chart.data.labels.push(response.startTime);
+            if(chart.data.datasets[0].data.length >= maxPerView) {
+                chart.data.datasets[0].data.splice(0, 1);
+                chart.data.labels.splice(0, 1);
             }
-            myChart.update()
+            chart.update()
         }
     }
-}, 1000);
+}, timeIntervalMS);

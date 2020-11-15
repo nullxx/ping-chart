@@ -1,6 +1,6 @@
 {
   "name": "ping-chart",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple chart to view network stability",
   "main": "app.js",
   "scripts": {
@@ -8,7 +8,6 @@
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
-  
   "build": {
     "appId": "me.nullx.pingChart",
     "dmg": {
@@ -41,7 +40,6 @@
       "!**/.github/*"
     ]
   },
-  
   "keywords": [],
   "author": "nullx <mail@nullx.me>",
   "repository": "https://github.com/nullxx/ping-chart",
@@ -52,6 +50,7 @@
   },
   "dependencies": {
     "chart.js": "^2.9.4",
+    "dotenv": "^8.2.0",
     "menubar": "^9.0.1",
     "ping": "^0.3.0"
   }
