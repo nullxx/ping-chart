@@ -11,7 +11,7 @@ var chart = new Chart(ctx, {
     data: {
         labels: [],
         datasets: [{
-            label: 'time of response',
+            label: 'time of response (ms)',
             data: [],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -36,8 +36,11 @@ var chart = new Chart(ctx, {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero: true
-                }
+                    beginAtZero: true,
+                    callback: function (value, index, values) {
+                        return `${value} ms`
+                    }
+                },
             }]
         },
     }
@@ -50,11 +53,11 @@ const doPing = (host = '1.1.1.1') => {
         ping.sys.probe(host, (isAlive, err) => {
             if (err) return rej({ err });
             const endTime = new Date();
-            var timeDiff = endTime - startTime; 
+            var timeDiff = endTime - startTime;
 
             timeDiff /= 1000;
 
-            res({ isAlive, seconds: timeDiff, startTime: startTime.toLocaleTimeString() });
+            res({ isAlive, time: { seconds: timeDiff, ms: timeDiff * 1000 }, startTime: startTime.toLocaleTimeString() });
         })
     })
 }
@@ -63,13 +66,13 @@ setInterval(async () => {
     const response = await doPing(host);
     if (!response.err) {
         if (response.isAlive) {
-            chart.data.datasets[0].data.push(response.seconds)
+            chart.data.datasets[0].data.push(response.time.ms)
             chart.data.labels.push(response.startTime);
-            if(chart.data.datasets[0].data.length >= maxPerView) {
+            if (chart.data.datasets[0].data.length >= maxPerView) {
                 chart.data.datasets[0].data.splice(0, 1);
                 chart.data.labels.splice(0, 1);
             }
-            chart.update()
+            chart.update();
         }
     }
 }, timeIntervalMS);
