@@ -1,5 +1,5 @@
 # ping-chart
-**Simple** desktop app that implements a chart to view network stability.
+**Simple** multiplatform desktop app that implements a chart to view network stability.
 
 # Demo
 ![Demo](demo.gif)
